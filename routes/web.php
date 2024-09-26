@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Route;
 //    return view('home');
 //});
 
-Route::get('/', [AdController::class, 'getAds']);
+Route::get('/', [AdController::class, 'index']);
+Route::resource('ads', AdController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

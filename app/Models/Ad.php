@@ -9,6 +9,17 @@ class Ad extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'price',
+        'rooms',
+        'address',
+        'branch_id',
+        'user_id',
+        'status_id',
+    ];
+
     public function branch(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Branch::class);

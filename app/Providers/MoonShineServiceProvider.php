@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\AdResource;
+use App\MoonShine\Resources\BranchResource;
+use App\MoonShine\Resources\StatusResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -50,9 +53,15 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ),
             ]),
 
-            MenuItem::make('Documentation', 'https://moonshine-laravel.com/docs')
-                ->badge(fn() => 'Check')
-                ->blank(),
+            MenuItem::make('Asosiy sahifa', url('/'))->icon('heroicons.home')->customLinkAttributes(['target' => '_blank']),
+            MenuItem::make("E'lonlar", new AdResource())->icon('heroicons.megaphone'),
+            MenuItem::make("Filiallar", new BranchResource())->icon('heroicons.building-office'),
+            MenuItem::make("Statuslar", new StatusResource())->icon('heroicons.check-circle'),
+
+
+//            MenuItem::make('Documentation', 'https://moonshine-laravel.com/docs')
+//                ->badge(fn() => 'Check')
+//                ->blank(),
         ];
     }
 
