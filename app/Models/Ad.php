@@ -20,6 +20,8 @@ class Ad extends Model
         'status_id',
     ];
 
+    protected $with = ['images'];
+
     public function branch(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Branch::class);
@@ -30,4 +32,18 @@ class Ad extends Model
         return $this->belongsTo(Status::class);
     }
 
+    public function images(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(AdImage::class);
+    }
+
+    public function owner(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function bookmarkedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'bookmarks')->withTimestamps();
+    }
 }

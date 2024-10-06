@@ -49,4 +49,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function bookmarkedAds()
+    {
+        return $this->belongsToMany(Ad::class, 'bookmarks')->withTimestamps();
+    }
 }

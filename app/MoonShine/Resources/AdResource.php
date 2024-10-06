@@ -11,6 +11,7 @@ use App\Models\Ad;
 use MoonShine\Fields\Enum;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Relationships\BelongsTo;
+use MoonShine\Fields\Relationships\HasMany;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Decorations\Block;
@@ -32,6 +33,7 @@ class AdResource extends ModelResource
      */
     public function fields(): array
     {
+        // FIXME: fix user relation (owner)
         return [
             Block::make([
                 ID::make()->sortable(),
@@ -43,7 +45,9 @@ class AdResource extends ModelResource
                 Enum::make("Jins", "gender")->attach(Gender::class)->sortable(),
                 BelongsTo::make(label: 'Filial', relationName: 'branch', resource: new BranchResource())->sortable(),
                 BelongsTo::make(label: 'Status', relationName: 'status', resource: new StatusResource())->sortable(),
-
+                BelongsTo::make(label: 'Muallif', relationName: 'owner', resource: new UserResource()),
+                BelongsTo::make(label: 'Holati', relationName: 'status', resource: new StatusResource())->sortable(),
+                HasMany::make(label: 'Rasmlar', relationName: 'images', resource: new AdImageResource())->onlyLink(),
             ]),
         ];
     }

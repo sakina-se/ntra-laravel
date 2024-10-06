@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdController::class, 'index']);
 Route::resource('ads', AdController::class);
+Route::post('/ads/{id}/bookmark', [UserController::class, 'toggleBookmark']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
