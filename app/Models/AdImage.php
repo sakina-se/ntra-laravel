@@ -9,6 +9,8 @@ class AdImage extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'ad_id',
         'name',

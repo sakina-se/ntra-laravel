@@ -9,6 +9,8 @@ class Branch extends Model
 {
     use HasFactory;
 
+    const UPDATED_AT = null;
+
     public function ads(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Ad::class);

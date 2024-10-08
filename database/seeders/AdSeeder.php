@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ad;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class AdSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Ad::factory()
+            ->count(200)
+            ->create();
     }
 }

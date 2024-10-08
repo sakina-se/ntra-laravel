@@ -20,6 +20,7 @@ class BranchFactory extends Factory
             'name' => fake()->company(),
             'address' => fake()->address(),
             'image' => fake()->image(),
+            'created_at' => fake()->time(),
         ];
     }
 }

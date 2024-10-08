@@ -50,6 +50,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function ads(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Ad::class);
+    }
+
     public function bookmarkedAds()
     {
         return $this->belongsToMany(Ad::class, 'bookmarks')->withTimestamps();

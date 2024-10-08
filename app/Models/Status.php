@@ -9,6 +9,8 @@ class Status extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     const  ACTIVE = 1;
     const  INACTIVE = 2;
 
