@@ -1,5 +1,8 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+
 class UserController extends Controller
 {
     public function toggleBookmark($id): \Illuminate\Http\RedirectResponse
@@ -12,5 +15,10 @@ class UserController extends Controller
             $user->bookmarkedAds()->attach($id);
             return back()->with('message', "E'lon qo'shildi");
         }
+    }
+
+    public function index(): \Illuminate\Http\JsonResponse
+    {
+        return response()->json(User::all());
     }
 }

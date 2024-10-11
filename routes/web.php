@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
